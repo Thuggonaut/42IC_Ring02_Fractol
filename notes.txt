@@ -1,0 +1,6 @@
+Fractal Geometry
+
+Self-similarity:
+- The property of an object which looks the same whatever the scale.
+- E.g. the snowflake
+
