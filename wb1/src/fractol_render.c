@@ -30,19 +30,19 @@ void	get_complex_map(int x, int y, t_fractol *fract)
 	t_fractol	z;
 	t_fractol	c;
 	int			i;
-	int			rgb; //Colour
+	int			rgb;
 
-	//At first iteration
-	i = 0;
-	z.cmplx_r = 0.0;
-	z.cmplx_i = 0.0;
+	i = 0; 	//At first iteration
 
 	//Complex coordinates scaled
-	c.cmplx_r = map(fract->cmplx_r, -2, +2, 0, WIDTH);
-	c.cmplx_i = map(fract->cmplx_i, +2, -2, 0, HEIGHT);
+	z.cmplx_r = map(x, -2, +2, 0, WIDTH);
+	z.cmplx_i = map(y, +2, -2, 0, HEIGHT);
+
+	c.cmplx_r = z.cmplx_r;
+	c.cmplx_i = z.cmplx_i;
 
 	//The number of iterations for z^2 + c until the mandelbrot/julia point has escaped
-	while (i < fract->iterations) //The more iterations, the clearer the image
+	while (i < fract->iterations) 
 	{
 		z = sum_complex(square_complex(z), c);
 
@@ -51,12 +51,12 @@ void	get_complex_map(int x, int y, t_fractol *fract)
 		if ((z.cmplx_r * z.cmplx_r) + (z.cmplx_i * z.cmplx_i) > fract->hypotenuse)
 		{
 			rgb = map(i, BLACK, WHITE, 0, fract->iterations); //BLACK implies the absense of colour, WHITE implies colour
-			ft_pixel_put(x, y, fract->img, rgb); //TODO
+			ft_pixel_put(x, y, fract, rgb); 
 			return ;
 		}
 		++i;
 	}
-	ft_pixel_put(x, y, fract->img, PINK);
+	ft_pixel_put(x, y, fract, PINK);
 }
 
 /*
@@ -82,6 +82,6 @@ void	fractol_render(t_fractol *fract)
 	}
 	mlx_put_image_to_window(fract->mlx_connect,
 							fract->window,
-							fract->img_buffer,
+							fract->img,
 							0, 0); //cmplx_r, cmplx_i
 }
