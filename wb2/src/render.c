@@ -18,8 +18,9 @@ void	get_complex_map(int x, int y, t_fractol *fract)
 
 	i = 0;
 
-	z.cmplx_r = map(x, -2, +2, 0, WIDTH);
-	z.cmplx_i = map(y, +2, -2, 0, HEIGHT);
+	//Set up the initial complex number z based on the coordinates x and y on our rendering plane
+	z.cmplx_r = (map(x, -2, +2, 0, WIDTH) * fract->zoom) + fract->shift_r; //Map the x coordinate to the range of -2 to +2, scales the map according to zoom value, then place z along the real axis of the complex plane
+	z.cmplx_i = (map(y, +2, -2, 0, HEIGHT) * fract->zoom) + fract->shift_i; ////Map the y coordinate to the range of +2 to -2, scales the map according to zoom value, then place z along the imaginary axis of the complex plane
 
 	c.cmplx_r = z.cmplx_r;
 	c.cmplx_i = z.cmplx_i;
@@ -30,13 +31,13 @@ void	get_complex_map(int x, int y, t_fractol *fract)
 
 		if ((z.cmplx_r * z.cmplx_r) + (z.cmplx_i * z.cmplx_i) > fract->hypotenuse)
 		{
-			rgb = map(i, BLACK, WHITE, 0, fract->iterations); 
+			rgb = map(i, BLACK, ELECTRIC, 0, fract->iterations); 
 			ft_pixel_put(x, y, fract, rgb); 
 			return ;
 		}
 		++i;
 	}
-	ft_pixel_put(x, y, fract, PINK);
+	ft_pixel_put(x, y, fract, BLACK);
 }
 
 void	fractol_render(t_fractol *fract)

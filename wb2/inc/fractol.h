@@ -5,6 +5,8 @@
 # include "../libft/inc/libft.h"
 # include "../libft/inc/ft_printf.h"
 # include <math.h>
+# include <X11/X.h> //X11 functions and data types for graphics and window management
+# include <X11/keysym.h> //Used to identify keyboard events. It allows you to map keycodes to more human-readable key symbols (e.g., XK_a for the 'a' key)
 
 #define WIDTH	800
 #define HEIGHT	800
@@ -38,7 +40,10 @@ typedef struct s_fractol
 	double	cmplx_r;
 	double	cmplx_i;
 	double	hypotenuse; 
-	int		iterations; 
+	int		iterations;
+	double	shift_r;
+	double	shift_i;
+	double	zoom;
 }	t_fractol;
 
 
@@ -52,9 +57,15 @@ void		data_init(t_fractol *fract);
 void		fractol_render(t_fractol *fract);
 
 
+//Events
+int			handle_key(int keysym, t_fractol *fract);
+int	handle_mouse(int button, int x, int y, t_fractol *fract);
+
+
 //Utils
 double 		map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
 t_fractol   sum_complex(t_fractol z1, t_fractol z2);
 t_fractol   square_complex(t_fractol z);
+int			clean_exit(t_fractol *fract);
 
 # endif

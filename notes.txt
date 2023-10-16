@@ -4,3 +4,22 @@ Self-similarity:
 - The property of an object which looks the same whatever the scale.
 - E.g. the snowflake
 
+Objectives:
+- MiniLibX graphical library
+- Complex numbers notion
+- Optimization of graphics
+- Event handling
+
+Rendering:
+- Mandelbrot, Julia, and a third for the Bonus Part
+- Mouse wheel zooms in/out. For Bonus, the zoom follows the mouse position
+- Julia: can create different sets by passing different parameters to the ./fractol
+- If no parameters are provided, display a list of parameter options before clean exit
+- Use atlease three colours
+- Bonus: move the view with arrow keys
+- Bonus: Make the color range shift
+
+Graphic management:
+- Smooth window management
+- Pressing ESC or clicking X on the window, closes the window and clean exit
+- Must use images of the MiniLibX
