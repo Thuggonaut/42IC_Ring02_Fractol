@@ -13,11 +13,11 @@ static void	events_init(t_fractol *fract)
 				ButtonPressMask,
 				handle_mouse,
 				fract);
-	mlx_hook(fract->window,
+	/*mlx_hook(fract->window,
 				MotionNotify,
 				PointerMotionMask,
 				julia_track,
-				fract);
+				fract);*/
 	mlx_hook(fract->window,
 				DestroyNotify,
 				StructureNotifyMask,
@@ -28,7 +28,7 @@ static void	events_init(t_fractol *fract)
 static void	data_init(t_fractol *fract)
 {
 	fract->hypotenuse = 4; //Re the Mandelbrot, the "hypotenuse" is used to determine if a point has escaped (left the Mandelbrot set) during iteration. Setting it to 4, corresponds to a radius of 2
-	fract->iterations = 200; //Arbitrary value that  determines how many iterations are performed to determine if a point is part of the Mandelbrot set. A higher number of iterations can provide more detail but requires more computation
+	fract->iterations = 100; //Arbitrary value that  determines how many iterations are performed to determine if a point is part of the Mandelbrot set. A higher number of iterations can provide more detail but requires more computation
 	fract->shift_r = 0.0; //Represent shifts (translations) in the real and imaginary components of the complex plane, starting with the default center of the Mandelbrot set
 	fract->shift_i = 0.0; //They allow you to change the center of the portion of the Mandelbrot set that you're rendering
 	fract->zoom = 1.0; //Setting 1.0 at the beginning provides a standard reference point, indicating a 1:1 mapping between pixels and complex plane coordinates, that can be increased to zoom in and decreased to zoom out 

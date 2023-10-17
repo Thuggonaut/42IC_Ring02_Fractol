@@ -1,4 +1,4 @@
-#ifndef FRACTOL_H
+#ifndef FRACTOL_H //COPY REPO BEFORE COMMENTING!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # define FRACTOL_H
 
 # include "mlx.h"
@@ -71,7 +71,7 @@ void		colour_shift(t_fractol *fract);
 //Events handling
 int			handle_key(int keysym, t_fractol *fract);
 int			handle_mouse(int button, int x, int y, t_fractol *fract);
-int			julia_track(int x, int y, t_fractol *fract);
+//int			julia_track(int x, int y, t_fractol *fract);
 
 //Utils
 double		map(t_map_coords coords);

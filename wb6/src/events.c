@@ -13,12 +13,23 @@ int	handle_key(int keysym, t_fractol *fract)
 	else if (keysym == XK_Down || keysym == XK_s)
 		fract->shift_i += (0.1 * fract->zoom);
 	else if (keysym == XK_plus || keysym == XK_KP_Add)
-		fract->iterations += 20;
+		fract->iterations += 30;
 	else if (keysym == XK_minus || keysym == XK_KP_Subtract)
-		fract->iterations -= 20;
+		fract->iterations -= 30;
 	else if (keysym == XK_space)
 		colour_shift(fract);
 	fractol_render(fract); 						
+	return (0);
+}
+
+static int	julia_track(int button, int x, int y, t_fractol *fract)
+{
+	if (button == Button1 || button == Button3)
+	{
+		fract->julia_r = (map((t_map_coords){x, -2, +2, 0, WIDTH}) * fract->zoom) + fract->shift_r; 
+		fract->julia_i = (map((t_map_coords){y, +2, -2, 0, HEIGHT}) * fract->zoom) + fract->shift_i;
+		fractol_render(fract);
+	}
 	return (0);
 }
 
@@ -30,6 +41,8 @@ int handle_mouse(int button, int x, int y, t_fractol *fract)
 
 	mouse_r = (x - WIDTH / 2) / (0.5 * WIDTH * fract->zoom) + fract->shift_r;
 	mouse_i = (y - HEIGHT / 2) / (0.5 * HEIGHT * fract->zoom) + fract->shift_i;
+	if (!ft_strncmp(fract->title, "Julia", 5))
+		julia_track(button, x, y, fract);
 	if (button == Button4) // Zoom in
 	{
 		zoomFactor = 0.95;
@@ -46,15 +59,4 @@ int handle_mouse(int button, int x, int y, t_fractol *fract)
 	}
 	fractol_render(fract);
 	return (0);
-}
-
-int	julia_track(int x, int y, t_fractol *fract)
-{
-	if (!ft_strncmp(fract->title, "Julia", 5))
-	{
-		fract->julia_r = (map((t_map_coords){x, -2, +2, 0, WIDTH}) * fract->zoom) + fract->shift_r; 
-		fract->julia_i = (map((t_map_coords){y, +2, -2, 0, HEIGHT}) * fract->zoom) + fract->shift_i;
-		fractol_render(fract);
-	}
-	return 0;
 }

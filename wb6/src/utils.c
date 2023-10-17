@@ -53,12 +53,12 @@ double	atod(char *s) //Define a function that takes a string and returns a doubl
 	power = 1;
 	while (*s == ' ' || (*s >= '\t' && *s <= '\n')) //Skip leading whitespace characters
 		++s;
-	while ('+' == *s || '-' == *s) //Check for a plus or minus sign at the beginning of the string
-		if ('-' == *s++) 
+	while (*s == '+' || *s == '-') //Check for a plus or minus sign at the beginning of the string
+		if (*s++ == '-') 
 			sign = -sign; //Update the sign variable accordingly
 	while (*s != '.' && *s) //Loop until a "." is encoutered, or the end of the string is reached
 		integral = (integral * 10) + (*s++ - '0'); //Multiply the existing integral part by 10 and add the numeric value of the character in the string to calculate the integer part. It does this by subtracting the ASCII value of '0' (which is 48) from the character to convert it to an integer
-	if ('.' == *s) //Check if a decimal point ('.') is encountered
+	if (*s == '.') //Check if a decimal point ('.') is encountered
 		++s; //Advance the string pointer
 	while (*s) //Process the fractional part of the number, begining from the digit after the "." until the end of the string
 	{
