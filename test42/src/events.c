@@ -69,3 +69,17 @@ int handle_mouse(int button, int x, int y, t_fractol *fract)
 	fractol_render(fract);
 	return (0);
 }
+
+void	instructions()
+{
+	ft_printf("\nWelcome to the fractal exploration!\nSadly, MiniLibX's limited capabilities result in slow rendering 😞\n");
+	ft_printf("\nTo move the fractal:	Press keys: W, A, S, D or Left, Right, Up, Down arrows\n");
+	ft_printf("To zoom in:		Scroll mouse wheel up\n");
+	ft_printf("To zoom out:		Scroll mouse wheel down\n");
+	ft_printf("To switch colours:	Press: Space bar\n");
+	ft_printf("To increase iterations:	Press key: + (from the number pad)\n");
+	ft_printf("To decrease iterations:	Press key: -\n");
+	ft_printf("To rotate Julia:	Mouse left or right click\n");
+	ft_printf("To quit:		Press key: ESC or click X on window, or ^C on command line\n");
+	ft_printf("\nWARNING: Attempting to resize or maximize the window will lose you to the black abyss!\n");
+}

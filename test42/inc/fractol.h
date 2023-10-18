@@ -13,21 +13,22 @@
 #define HEIGHT	1000
 
 //Colours
-#define BLACK		0x000000
-#define WHITE		0xFFFFFF
-#define GREEN		0x00FF00 
-#define BLUE		0x0000FF 
-#define MAGENTA		0xFF00FF 
-#define LIME		0xCCFF00 
-#define ORANGE		0xFF6600
-#define PURPLE		0x9932CC 
-#define AQUA		0x33CCCC
-#define PINK		0xFF66B2
-#define ELECTRIC	0x0066FF
-#define LIGHTENING	0x00CCFF
-#define LAVA		0xFF3300
-#define YELLOW		0xFFFF00 
-#define	PASTELPINK	0xFFB6C1
+#define BLACK			0x000000
+#define WHITE			0xFFFFFF
+#define GREEN			0x00FF00 
+#define BLUE			0x0000FF 
+#define MAGENTA			0xFF00FF 
+#define LIME			0xCCFF00 
+#define ORANGE			0xFF6600
+#define PURPLE			0x9932CC 
+#define AQUA			0x33CCCC
+#define PINK			0xFF66B2
+#define ELECTRIC		0x0066FF
+#define LIGHTENING		0x00CCFF
+#define LAVA			0xFF3300
+#define YELLOW			0xFFFF00 
+#define PASTELYELLOW	0xFFFF99
+#define	PASTELPINK		0xFFB6C1
 
 //Data struct for rendering an image in a window
 typedef struct s_fractol
@@ -74,6 +75,7 @@ void		colour_shift(t_fractol *fract);
 int			handle_key(int keysym, t_fractol *fract);
 int			handle_mouse(int button, int x, int y, t_fractol *fract);
 int			clean_exit(t_fractol *fract);
+void		instructions();
 
 //Utils
 double		map(t_map_coords coords);

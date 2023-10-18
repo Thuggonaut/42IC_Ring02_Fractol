@@ -15,7 +15,7 @@ int	blend_colours(int colour1, int colour2, double t)
 
 void	colour_shift(t_fractol *fract)
 {
-	static int colours[] = {WHITE, PASTELPINK, GREEN, BLUE, MAGENTA, LIME, ORANGE, PURPLE, AQUA, PINK, ELECTRIC, LIGHTENING, LAVA, YELLOW};
+	static int colours[] = {WHITE, PASTELPINK, GREEN, BLUE, MAGENTA, LIME, ORANGE, PURPLE, AQUA, PINK, ELECTRIC, LIGHTENING, LAVA, YELLOW, PASTELYELLOW};
 	static int colour_index = 0;
 
 	colour_index = (colour_index + 1) % (sizeof(colours) / sizeof(colours[0]));

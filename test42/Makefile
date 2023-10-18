@@ -10,7 +10,7 @@ RM					=	rm -f
 # Directories
 LIBFT				=	./libft/libft.a
 MLX					=	./minilibx-linux/libmlx.a
-INC					=	inc/
+INC					=	inc/ libft/ minilibx-linux/
 SRC_DIR				=	src/
 OBJ_DIR				=	obj/
 
@@ -43,7 +43,7 @@ $(MLX):
 # Compile object files from source files
 $(OBJ_DIR)%.o:			$(SRC_DIR)%.c 
 						@mkdir -p $(@D)
-						@$(CC) $(CFLAGS) $(INC) -c $< -o $@
+						@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 						@$(RM) -r $(OBJ_DIR)

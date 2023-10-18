@@ -5,7 +5,7 @@ int	main(int argc, char **argv)
 	t_fractol	fract;
 	
 	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", ft_strlen("mandelbrot") + 1))
-		|| (argc == 4 &&!ft_strncmp(argv[1], "julia", ft_strlen("julia") +  1))) //TODO BONUS FRACTAL
+		|| (argc == 4 &&!ft_strncmp(argv[1], "julia", ft_strlen("julia") +  1))) //If the ft_strncmp function returns 0 (the strings are equal), the ! operator negates the result and will convert it to 1, which evaluates to true
 	{
 		argv[1][0] = ft_toupper(argv[1][0]);
 		fract.title = argv[1];
