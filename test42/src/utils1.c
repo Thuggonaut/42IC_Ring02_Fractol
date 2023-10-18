@@ -52,9 +52,3 @@ double	atod(char *s)
 	}
 	return ((integral + fractional) * sign);
 }
-
-void	malloc_error(void)
-{
-	perror("MALLOC ERROR: ");
-	exit(EXIT_FAILURE);
-}

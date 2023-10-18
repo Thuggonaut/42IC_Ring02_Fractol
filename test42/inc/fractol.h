@@ -83,5 +83,7 @@ t_fractol	sum_complex(t_fractol z1, t_fractol z2);
 t_fractol	square_complex(t_fractol z);
 void		malloc_error();
 double		atod(char *s);
+void		zoom_in(t_fractol *fract, double mouse_r, double mouse_i);
+void		zoom_out(t_fractol *fract, double mouse_r, double mouse_i);
 
 # endif

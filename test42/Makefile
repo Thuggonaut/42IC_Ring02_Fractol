@@ -19,7 +19,8 @@ SRC					=	fractol.c \
 						init.c \
 						render.c \
 						events.c \
-						utils.c \
+						utils1.c \
+						utils2.c \
 						colours.c
 
 SRCS				=	$(addprefix $(SRC_DIR), $(SRC))
