@@ -11,6 +11,7 @@ void	instructions(void)
 	ft_printf("To decrease iterations:	Press key: -\n");
 	ft_printf("To rotate Julia:	Mouse left or right click\n");
 	ft_printf("To quit:		Press key: ESC or click X on window, or ^C on command line\n");
+	ft_printf("\nTry: <./fractal julia -0.4 +0.6> or\n<./fractol julia -0.835 -0.2321>\n");
 	ft_printf("\nWARNING: Attempting to resize or maximize the window will lose you to the black abyss!\n");
 }
 

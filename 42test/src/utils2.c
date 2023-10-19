@@ -12,8 +12,9 @@ void	instructions(void)
 	ft_printf("To decrease iterations:	Press key: -\n");
 	ft_printf("To rotate Julia:	Mouse left or right click\n");
 	ft_printf("To quit:		Press key: ESC or click X on window, or ^C on command ");
-	ft_printf("line\n\nWARNING: Attempting to resize or maximize the window ");
-	ft_printf("will lose you to the black abyss!\n");
+	ft_printf("line\n\nTry: <./fractal julia -0.4 +0.6> or <./fractol julia -0.");
+	ft_printf("835 -0.2321>\n\nWARNING: Attempting to resize or maximize the ");
+	ft_printf("window will lose you to the black abyss!\n");
 }
 
 void	malloc_error(void)

@@ -1,4 +1,6 @@
-#Program name
+# ADD FINAL MAKEFILE THAT COMPILES BOTH ON LINUX AND MACOS!!!!!!!!!!!!!!!!!!!
+
+# Program name
 NAME				=	fractol
 
 # Compiler and CFlags

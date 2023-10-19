@@ -23,3 +23,7 @@ Graphic management:
 - Smooth window management
 - Pressing ESC or clicking X on the window, closes the window and clean exit
 - Must use images of the MiniLibX
+
+
+Notes:
+- See colours defined in mlx_rgb.c

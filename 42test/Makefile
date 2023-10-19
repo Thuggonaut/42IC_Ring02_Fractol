@@ -4,13 +4,24 @@ NAME				=	fractol
 # Compiler and CFlags
 CC					=	gcc
 CFLAGS				=	-Wall -Werror -Wextra
-LIBS      			=	-lXext -lX11 -lm
 RM					=	rm -f
+
+# Determine the platform
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S), Linux)
+	LIBS = -lXext -lX11 -lm
+	MLX = ./minilibx-linux/libmlx.a
+	INC = inc/ libft/ minilibx-linux/
+else ifeq ($(UNAME_S), Darwin)
+	LIBS = -lmlx -framework OpenGL -framework AppKit -lm
+	MLX = ./minilibx-macos/libmlx.a
+	INC = inc/ libft/ minilibx-macos/
+else
+	$(error Unsupported platform: $(UNAME_S))
+endif
 
 # Directories
 LIBFT				=	./libft/libft.a
-MLX					=	./minilibx-linux/libmlx.a
-INC					=	inc/ libft/ minilibx-linux/
 SRC_DIR				=	src/
 OBJ_DIR				=	obj/
 
@@ -48,7 +59,7 @@ $(OBJ_DIR)%.o:			$(SRC_DIR)%.c
 
 clean:
 						@$(RM) -r $(OBJ_DIR)
-						@make clean -C ./minilibx-linux
+						@make clean -C $(dir $(MLX))
 						@make clean -C ./libft
 
 fclean: 				clean
