@@ -47,7 +47,7 @@ static void	create_window(t_fractol *fract)
 			fract->title);
 	if (!fract->window)
 	{
-		mlx_destroy_display(fract->mlx_connect);
+		mlx_destroy_window(fract->mlx_connect);
 		free(fract->mlx_connect);
 		malloc_error();
 	}
@@ -58,8 +58,8 @@ static void	create_image(t_fractol *fract)
 	fract->img = mlx_new_image(fract->mlx_connect, WIDTH, HEIGHT);
 	if (!fract->img)
 	{
-		mlx_destroy_window(fract->mlx_connect, fract->window);
-		mlx_destroy_display(fract->mlx_connect);
+		mlx_destroy_image(fract->mlx_connect, fract->window);
+		mlx_destroy_window(fract->mlx_connect);
 		free(fract->mlx_connect);
 		malloc_error();
 	}
