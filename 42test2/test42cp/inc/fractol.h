@@ -28,8 +28,8 @@
 # define Key_Right = 39
 # define Key_Up = 38
 # define Key_Down = 40
-# define Key_plus
-# define Key_minus
+//# define Key_plus
+//# define Key_minus
 # define Key_Add = 107
 # define Key_Subtract = 109
 # define Key_W = 87
