@@ -37,10 +37,10 @@
 # define Key_S = 83
 # define Key_D = 68
 # define Key_SPACE = 32
-# define Button1
-# define Button3
-# define Button4
-# define Button5
+# define Button1 = 1
+# define Button3 = 2
+# define Button4 = 4
+# define Button5 = 5
 
 # define BLACK			0x000000
 # define WHITE			0xFFFFFF
