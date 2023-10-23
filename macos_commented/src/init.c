@@ -19,7 +19,7 @@ static void	events_init(t_fractol *fract) //Define a function that initialises h
 	//the event code, the event mask, the event function, and 
 	//the pointer to the fractal struct
 	mlx_hook(fract->window, 2, 0, handle_key, fract);
-	mlx_hook(fract->window, 4,0, handle_mouse, fract);
+	mlx_hook(fract->window, 4, 0, handle_mouse, fract);
 	mlx_hook(fract->window, 17, 0, clean_exit, fract);
 }
 
