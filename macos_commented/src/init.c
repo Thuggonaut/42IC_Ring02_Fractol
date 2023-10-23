@@ -67,9 +67,10 @@ static void	create_image(t_fractol *fract) //Define a function that creates a im
 
 void	fractol_init(t_fractol *fract) //Define a function that initiates our fractal program by calling the defined functions above
 {
-	fract->mlx_connect = mlx_init(); 
-	if (!fract->mlx_connect)
-		malloc_error();
+	fract->mlx_connect = mlx_init(); //Establish a connection to the mlx and assign its pointer to `mlx_connect` data
+	if (!fract->mlx_connect) //If connection is unsucessful
+		malloc_error(); //Print error message to indicate memory allocation failure, then exit
+	//If conection is established successful
 	create_window(fract);
 	create_image(fract);
 	events_init(fract);
