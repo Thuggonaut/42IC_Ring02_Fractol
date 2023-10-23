@@ -18,8 +18,8 @@ void	instructions(void)
 	ft_printf("limited capabilities result in slow rendering 😞\n");
 	ft_printf("\nTo move the fractal:	Press keys: W, A, S, D or Left, ");
 	ft_printf("Right, Up, Down arrows\nTo zoom in:		Scroll mouse wheel");
-	ft_printf("To zoom out:		Scroll mouse wheel down\n");
-	ft_printf(" up\nTo switch colours:	Press: Space bar\n");
+	ft_printf(" up\nTo zoom out:		Scroll mouse wheel down\n");
+	ft_printf("To switch colours:	Press: Space bar\n");
 	ft_printf("To increase iterations:	Press key: + (from the number pad)\n");
 	ft_printf("To decrease iterations:	Press key: -\n");
 	ft_printf("To rotate Julia:	Mouse left or right click\n");

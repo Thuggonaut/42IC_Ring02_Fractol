@@ -62,26 +62,26 @@ typedef struct s_map_coords //Store information needed for mapping a value from 
 }	t_map_coords;
 
 //Initialization 
-void		fractol_init(t_fractol *fract);
+void		fractol_init(t_fractol *fract); //Initialize the fractol and all its data
 
 //Render
-void		fractol_render(t_fractol *fract);
-int			blend_colours(int colour1, int colour2, double t);
-void		colour_shift(t_fractol *fract);
+void		fractol_render(t_fractol *fract); //Set the coordinates of the complex plane and render an image
+int			blend_colours(int colour1, int colour2, double t); //Use linear interpolation to blend colours
+void		colour_shift(t_fractol *fract); //Switch between fractal colours
 
 //Events handling
-int			handle_key(int key, t_fractol *fract);
-int			handle_mouse(int button, int x, int y, t_fractol *fract);
-int			clean_exit(t_fractol *fract);
-void		instructions(void);
+int			handle_key(int key, t_fractol *fract); //Handle key events
+int			handle_mouse(int button, int x, int y, t_fractol *fract); //Handle mouse events
+int			clean_exit(t_fractol *fract); //Handle closing the program sucessfully
+void		instructions(void); //Print instructions for exploring fractals
 
 //Utils
 double		map(t_map_coords coords); //Scale a map from one range to another
 t_fractol	sum_complex(t_fractol z1, t_fractol z2); //Add two complex numbers
 t_fractol	square_complex(t_fractol z); //Square a complex number
-void		malloc_error(void);
-double		atod(char *s);
-void		zoom_in(t_fractol *fract, double mouse_r, double mouse_i);
-void		zoom_out(t_fractol *fract, double mouse_r, double mouse_i);
+void		malloc_error(void); //Print error message and exit program
+double		atod(char *s); //Convert a char to a floating-point number
+void		zoom_in(t_fractol *fract, double mouse_r, double mouse_i); //Zoom in a fractal
+void		zoom_out(t_fractol *fract, double mouse_r, double mouse_i); //Zoom out a fractal
 
 #endif

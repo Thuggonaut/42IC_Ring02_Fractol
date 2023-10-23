@@ -29,7 +29,7 @@ Notes:
 - See colours defined in mlx_rgb.c
 
 
-Versions:
+# Versions:
 
 Linux
 
@@ -38,7 +38,7 @@ MacOS - commented
 Norminette friendly
 
 
-Differences between Linux and MacOS:
+# Differences between Linux and MacOS:
 - MiniLibx functions:
 	- L uses mlx_destroy_window() and mlx_destroy_display
 	- M uses the one mlx_destroy_window()
@@ -49,7 +49,7 @@ Differences between Linux and MacOS:
 	- M uses -Lminilibx-macos -lmlx -framework OpenGL -framework AppKit 
 
 
-FORMULAS:
+# FORMULAS:
 
 MANDELBROT formula:
 z = z^2 + c
@@ -89,7 +89,7 @@ Apply FOIL (First, Outer, Inner, Last):
 
 
 
-Complex Plane:
+# Complex Plane:
 
 The "complex plane" is a mathematical concept used in complex number theory and fractal geometry.
 It's a two-dimensional plane where each point represents a complex number.
@@ -97,19 +97,19 @@ The complex plane has two axes: the horizontal axis, often denoted as the real a
 Complex numbers are represented in the form "a + bi," where "a" is the real part and "b" is the imaginary part. The real axis represents the "a" component, and the imaginary axis represents the "b" component.
 In the context of fractals like the Mandelbrot set and Julia sets, the complex plane is used to explore and visualize the behavior of complex functions. The points in the complex plane are iteratively computed to determine if they are within certain boundaries, and this information is used to generate fractal images.
 
-Translation:
+# Translation:
 
 In the context of graphics and computer graphics, "translation" refers to the process of moving an object or image from one location to another within a two-dimensional or three-dimensional space.
 It involves changing the position of the object while keeping its orientation and size constant.
 In the t_fractol structure, shift_r and shift_i are used to control the translation of the fractal image. They determine how much the image is shifted horizontally (shift_r) and vertically (shift_i) within the complex plane.
 
-Julia constants:
+# Julia constants:
 
 double julia_r: This field is used when you're dealing with a Julia fractal. In the context of fractals, a Julia set is defined by a mathematical equation where you have a constant (also called a seed) that influences the shape and characteristics of the fractal. The julia_r field represents the real component of this constant. It's a numerical value that determines the horizontal position of the Julia set within the complex plane. By adjusting julia_r, you can shift the Julia set left or right, which in turn alters the appearance of the fractal.
 
 double julia_i: Just like julia_r, this field is specific to Julia fractals. It represents the imaginary component of the Julia constant. The imaginary component, similar to the real component, influences the vertical position of the Julia set within the complex plane. By adjusting julia_i, you can move the Julia set up or down, leading to changes in the fractal's appearance.
 
-Linear interpolation: 
+# Linear interpolation: 
 
 is a method for estimating values within a range based on known values at the endpoints of that range. It's like drawing a straight line between two points on a graph and finding the value of any point along that line.
 
@@ -153,4 +153,48 @@ Step 3: Apply Linear Interpolation
 Now, for each point on the map (x, y), you apply linear interpolation to calculate the new coordinates (new_x, new_y) after scaling.
 
 Mapping each point from the original map to the new map while maintaining the aspect ratio. Essentially, you're stretching or compressing the map in both horizontal and vertical directions based on the scaling ratios
+
+# Linear interpolation and colour blending:
+
+Linear interpolation between two colors results in a blending of colors because it calculates intermediate colors by smoothly transitioning from one color to another. This process creates a gradient or transition effect, which visually appears as a blend of the two original colors.
+
+Here's a simple example to illustrate the concept of linear interpolation for blending colors:
+
+Suppose you have two colors, Color A and Color B, and you want to blend them together. You can do this using linear interpolation. Each color can be represented as a combination of its red (R), green (G), and blue (B) components, each ranging from 0 to 255 (or 0 to 1 in normalized form). Linear interpolation is performed independently for each of these color components (R, G, and B).
+
+Start with the two colors, Color A and Color B, and their respective RGB values.
+
+Calculate the intermediate color at a specific point between these two colors. For example, at the halfway point (t = 0.5) between Color A and Color B, the intermediate color's RGB components are calculated as follows:
+
+Red Component (R): Intermediate_R = (1 - t) * A_R + t * B_R
+Green Component (G): Intermediate_G = (1 - t) * A_G + t * B_G
+Blue Component (B): Intermediate_B = (1 - t) * A_B + t * B_B
+Here, t represents the position along the gradient, and it ranges from 0 to 1. When t is 0, the intermediate color is equal to Color A, and when t is 1, the intermediate color is equal to Color B.
+
+By varying the value of t between 0 and 1, you can calculate a range of intermediate colors that smoothly transition from Color A to Color B.
+
+The result is a series of colors that blend or transition from one to the other. When displayed in succession, it creates a visually appealing gradient or blending effect, which can be used for various purposes, such as shading, coloring, and creating smooth color transitions in graphics and visual applications.
+
+Example:
+
+Imagine you have two colors, Red and Blue, and you want to create a smooth color transition between them. Red is represented as (255, 0, 0) in RGB (where 255 is the maximum intensity for the red component), and Blue is (0, 0, 255). You want to create a gradient that goes from Red to Blue.
+
+Choose a specific point along the gradient. Let's say you want to find the color at the halfway point, t = 0.5.
+
+For the Red component (R), you calculate it as follows:
+
+Intermediate_R = (1 - t) * Red_R + t * Blue_R
+Intermediate_R = (1 - 0.5) * 255 + 0.5 * 0
+Intermediate_R = 0.5 * 255
+Intermediate_R = 127.5
+
+For the Green and Blue components (G and B), you do the same calculation. In this case, since we're at the halfway point, the Green and Blue components will also be 127.5.
+
+So, at t = 0.5, you get the color (127.5, 127.5, 127.5), which is a shade of gray. It's the halfway point between Red and Blue.
+
+By changing t from 0 to 1, you can find the colors at various points along the gradient. At t = 0, you get Red, and at t = 1, you get Blue. At all the points in between, you get different shades that smoothly transition from Red to Blue.
+
+Analogy:
+
+Think of this process as mixing two paint colors, Red and Blue, on a canvas. At t = 0, you have a canvas filled with pure Red. At t = 1, the canvas is covered with pure Blue. As you increase t from 0 to 1, you start adding Blue to the canvas while gradually reducing the amount of Red. This creates a smooth transition from Red to Blue. At t = 0.5, you've mixed an equal amount of Red and Blue, resulting in a shade of purple (in this case, gray in the RGB color model).
 
