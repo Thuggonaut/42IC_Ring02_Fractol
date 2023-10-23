@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tquemato <tquemato@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 18:47:33 by tquemato          #+#    #+#             */
-/*   Updated: 2023/10/21 16:25:26 by tquemato         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
@@ -18,27 +6,11 @@
 # include "../libft/inc/ft_printf.h"
 # include <math.h>
 
+//Window dimensions
 # define WIDTH	1000
 # define HEIGHT	1000
 
-/*
-# define Key_ESC 27
-# define Key_Left 37
-# define Key_Right 39
-# define Key_Up 38
-# define Key_Down 40
-# define Key_Add 107
-# define Key_Subtract 109
-# define Key_W 87
-# define Key_A 65
-# define Key_S 83
-# define Key_D 68
-# define Key_SPACE 32
-# define Button1 1
-# define Button3 2
-# define Button4 4
-# define Button5 5*/
-
+//Colours
 # define BLACK			0x000000
 # define WHITE			0xFFFFFF
 # define GREEN			0x00FF00 
@@ -56,54 +28,60 @@
 # define PASTELYELLOW	0xFFFF99
 # define PASTELPINK		0xFFB6C1
 
+//Data struct for rendering an image in a window
 typedef struct s_fractol
 {
-	char		*title;
-	void		*mlx_connect;
-	void		*window;
-	void		*img;
-	char		*img_buffer;
-	int			img_bpp;
-	int			img_line;
-	int			img_endian;
-	double		cmplx_r;
-	double		cmplx_i;
-	double		hypotenuse;
-	int			iterations;
-	double		shift_r;
-	double		shift_i;
-	double		zoom;
-	int			current_colour;
-	double		julia_r;
-	double		julia_i;
+	char		*title; //The title that will appear on the window
+	void		*mlx_connect; //Store a pointer from the mlx_init() function that establishes a connection to the mlx
+	void		*window; //Store a pointer from the mlx_new_window() function
+	void		*img; //Store a pointer to an image
+	char		*img_buffer; //Store the address of the image data as an array of bytes, where each byte represents a pixel
+	int			img_bpp; //Represents the number of bits used to for a single pixel in the image
+	int			img_line; //Represents the number of bytes in a single row or line of pixel data in the image
+	int			img_endian; //Refers to the byte order in which multi-byte data types (like integers) are stored in memory. Common values are 0 or 1 to indicate little-endian or big-endian
+	double		cmplx_r; //Refers to the real component of the complex value
+	double		cmplx_i; //Refers to the imaginary component of the complex value
+	double		hypotenuse; //A reference to check whether the points of the mandelbrot/julia has escaped
+	int			iterations; //Refers to the image quality and rendering speed
+	double		shift_r; //Store the horizontal translation in the complex plane, to control the movement of the fractal image left or right
+	double		shift_i; //Store the vertical translation in the complex plane, to control the movement of the fractal image up or down
+	double		zoom; //Store the zoom level of the fractal image. It determines how much the fractal is magnified or reduced in size
+	int			current_colour; //Store the current colour of the fractal
+	double		julia_r; //If the fractal type is Julia, store the real component of the Julia constant, which is used in the fractal equation for rendering
+	double		julia_i; //If the fractal type is Julia, store the imaginary component of the Julia constant, also used in the fractal equation
 }	t_fractol;
 
-typedef struct s_map_coords
+//Data struct to scale a map, converting a value from one range to another
+typedef struct s_map_coords //Store information needed for mapping a value from one range to another
 {
-	double		unscaled_num;
-	double		new_min;
-	double		new_max;
-	double		old_min;
-	double		old_max;
+	double		unscaled_num; //An unscaled number we want to map from one range to another. It's the value to transform, e.g. it could be the x or y coordinate of a pixel on your window
+	double		new_min; //The minimum and maximum values of the new range we want to map `unscaled_num`, defining the lower and upper boundary of the new range
+	double		new_max; //E.g., in fractal rendering, this could represent the minimum and maximum values for the x or y coordinates in the complex plane
+	double		old_min; //These fields specify the original range from which `unscaled_num` is coming
+	double		old_max; //E.g., in fractal rendering, this could be the range of x or y coordinates on the window
 }	t_map_coords;
 
+//Initialization 
 void		fractol_init(t_fractol *fract);
 
+//Render
 void		fractol_render(t_fractol *fract);
 int			blend_colours(int colour1, int colour2, double t);
 void		colour_shift(t_fractol *fract);
 
+//Events handling
 int			handle_key(int key, t_fractol *fract);
 int			handle_mouse(int button, int x, int y, t_fractol *fract);
-void		zoom_in(t_fractol *fract, double mouse_r, double mouse_i);
-void		zoom_out(t_fractol *fract, double mouse_r, double mouse_i);
 int			clean_exit(t_fractol *fract);
 void		instructions(void);
 
-double		map(t_map_coords coords);
-t_fractol	sum_complex(t_fractol z1, t_fractol z2);
-t_fractol	square_complex(t_fractol z);
+//Utils
+double		map(t_map_coords coords); //Scale a map from one range to another
+t_fractol	sum_complex(t_fractol z1, t_fractol z2); //Add two complex numbers
+t_fractol	square_complex(t_fractol z); //Square a complex number
 void		malloc_error(void);
 double		atod(char *s);
+void		zoom_in(t_fractol *fract, double mouse_r, double mouse_i);
+void		zoom_out(t_fractol *fract, double mouse_r, double mouse_i);
 
 #endif

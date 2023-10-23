@@ -31,7 +31,7 @@ void	instructions(void)
 
 void	malloc_error(void)
 {
-	perror("MALLOC ERROR: ");
+	perror("MALLOC ERROR: "); //Print an error message followed by a description of the last error that occurred retrieved from the errno variable
 	exit(EXIT_FAILURE);
 }
 
@@ -40,10 +40,10 @@ void	zoom_in(t_fractol *fract, double mouse_r, double mouse_i)
 	double	zoom_factor;
 
 	zoom_factor = 0.95;
-	fract->shift_r += (mouse_r - fract->shift_r) * \
-		(1 - zoom_factor);
-	fract->shift_i += (mouse_i - fract->shift_i) * \
-		(1 - zoom_factor);
+
+	//Adjust the zoom factor and shift to keep the cursor at the same point
+	fract->shift_r += (mouse_r - fract->shift_r) * (1 - zoom_factor);
+	fract->shift_i += (mouse_i - fract->shift_i) * (1 - zoom_factor);
 	fract->zoom *= zoom_factor;
 }
 
@@ -52,9 +52,9 @@ void	zoom_out(t_fractol *fract, double mouse_r, double mouse_i)
 	double	zoom_factor;
 
 	zoom_factor = 1.01;
-	fract->shift_r += (mouse_r - fract->shift_r) * \
-		(1 - zoom_factor);
-	fract->shift_i += (mouse_i - fract->shift_i) * \
-		(1 - zoom_factor);
+
+	//Adjust the zoom factor and shift to keep the cursor at the same point
+	fract->shift_r += (mouse_r - fract->shift_r) * (1 - zoom_factor);
+	fract->shift_i += (mouse_i - fract->shift_i) * (1 - zoom_factor);
 	fract->zoom *= zoom_factor;
 }
