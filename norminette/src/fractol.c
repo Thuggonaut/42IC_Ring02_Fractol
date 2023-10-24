@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	ft_printf("Invalid input\nTry:\n");
-	ft_printf("<./fractol mandelbrot> or\n<./fractal julia -0.4 +0.6>");
+	ft_printf("<./fractol mandelbrot> or\n<./fractosl julia -0.4 +0.6>");
 	ft_printf(" or\n<./fractol julia -0.835 -0.2321>\n");
 	exit(EXIT_FAILURE);
 }

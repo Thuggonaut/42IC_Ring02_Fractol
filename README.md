@@ -1,23 +1,37 @@
-Fractal Geometry
+# Fract-ol
 
-Self-similarity:
-- The property of an object which looks the same whatever the scale.
-- E.g. the snowflake
+A project creating a Fractal exploration program. 
 
-Objectives:
-- MiniLibX graphical library
-- Complex numbers notion
-- Optimization of graphics
-- Event handling
+A fractal has self-similarity:
+- The property of an object which looks the same whatever the scale (no matter how big or how small they are).
+- E.g. the snowflake, Romanesco Broccoli, pine cones, succulents, tree branches, foam.
 
-Rendering:
-- Mandelbrot, Julia, and a third for the Bonus Part
+
+## Preface:
+- This project was challenging, though enjoyable to complete, and the end result is so worth it!
+- I completed the mandatory and 4/5 of the project (everything except the third fractal).
+- I started with Linux, and once the program functioned, I translated the code to work on MacOS. See notes here: though much might not make sense until after delving in to the project's implementation.
+- The versions included are /linux /macos_commented and /norminette 
+- Here is the outline of how I tackeled fract-ol:
+	- Step 1: Learn the MiniLibX graphical library
+	- Step 2: Learn the Complex numbers notion
+	- Step 3: Learn how Fractals work
+	- Step 4: Learn about Event handling in the context of the project
+	- Step 5: Plan the structure of directories and files
+	- Step 6: Implement fract-ol
+	- Step 7: Test fract-ol against evaluation checklist: https://rphlr.github.io/42-Evals/Rank02/fract-ol/
+
+
+## The Mandatory (including most of the Bonus) part:
+
+Rendering requirements:
+- The Mandelbrot and Julia fractal sets
 - Mouse wheel zooms in/out. For Bonus, the zoom follows the mouse position
-- Julia: can create different sets by passing different parameters to the ./fractol
-- If no parameters are provided, display a list of parameter options before clean exit
+- Julia: can create different sets by passing different parameters to the ./fractol arguments
+- If no parameters are provided, display a list of parameter options before a clean exit
 - Use atlease three colours
 - Bonus: move the view with arrow keys
-- Bonus: Make the color range shift
+- Bonus: Make the colours shift
 
 Graphic management:
 - Smooth window management
@@ -25,20 +39,36 @@ Graphic management:
 - Must use images of the MiniLibX
 
 
-Notes:
-- See colours defined in mlx_rgb.c
+## Step 5: Plan the structure of directories and files
 
-
-# Versions:
-
-Linux
-
-MacOS - commented
-
-Norminette friendly
-
+```
+fractol/
+│
+├── Makefile
+│
+├── libft/
+│
+├── minilibx-macos/
+|
+├── inc/
+│   └── fractol.h 
+│
+└── src/
+	├── fractol.c
+	├── events.c
+	├── init.c
+	├── colours.c
+	├── render.c
+	└── utils.c
+```
 
 # Differences between Linux and MacOS:
+- MiniLibx libraries:
+	- For M, I went with OpenGL version
+	- Download it from the project page on your intra, unzip the file then place the directory at the root of your repository.
+	- When compiling your fractol, there will be warnings shown on the console relating to the MiniLibx - don't mind this. 
+	- At the root of your repository, do:
+		<norminette> <project/directories> to only check norm errors in your source files, e.g. `norminette inc/ src/`
 - MiniLibx functions:
 	- L uses mlx_destroy_window() and mlx_destroy_display
 	- M uses the one mlx_destroy_window()
@@ -47,7 +77,7 @@ Norminette friendly
 - Makefile linker flags:
 	- L uses -lXext -lX11 
 	- M uses -Lminilibx-macos -lmlx -framework OpenGL -framework AppKit 
-
+	- In my Makefile, I wrote it in a way that it could detect between Linux and MacOS, and compile accordingly. This seemed a great idea at first (and now I've learned something new), it was redundant because, of the differences in codes and functions mentioned above. There would surely be a way to remedy this, to write code that works universally. 
 
 # FORMULAS:
 
@@ -156,30 +186,30 @@ Mapping each point from the original map to the new map while maintaining the as
 
 # Linear interpolation and colour blending:
 
-Linear interpolation between two colors results in a blending of colors because it calculates intermediate colors by smoothly transitioning from one color to another. This process creates a gradient or transition effect, which visually appears as a blend of the two original colors.
+Linear interpolation between two colours results in a blending of colours because it calculates intermediate colours by smoothly transitioning from one colour to another. This process creates a gradient or transition effect, which visually appears as a blend of the two original colours.
 
-Here's a simple example to illustrate the concept of linear interpolation for blending colors:
+Here's a simple example to illustrate the concept of linear interpolation for blending colours:
 
-Suppose you have two colors, Color A and Color B, and you want to blend them together. You can do this using linear interpolation. Each color can be represented as a combination of its red (R), green (G), and blue (B) components, each ranging from 0 to 255 (or 0 to 1 in normalized form). Linear interpolation is performed independently for each of these color components (R, G, and B).
+Suppose you have two colours, Colour A and Colour B, and you want to blend them together. You can do this using linear interpolation. Each colour can be represented as a combination of its red (R), green (G), and blue (B) components, each ranging from 0 to 255 (or 0 to 1 in normalized form). Linear interpolation is performed independently for each of these colour components (R, G, and B).
 
-Start with the two colors, Color A and Color B, and their respective RGB values.
+Start with the two colours, Colour A and Colour B, and their respective RGB values.
 
-Calculate the intermediate color at a specific point between these two colors. For example, at the halfway point (t = 0.5) between Color A and Color B, the intermediate color's RGB components are calculated as follows:
+Calculate the intermediate colour at a specific point between these two colours. For example, at the halfway point (t = 0.5) between Colour A and Colour B, the intermediate colour's RGB components are calculated as follows:
 
 Red Component (R): Intermediate_R = (1 - t) * A_R + t * B_R
 Green Component (G): Intermediate_G = (1 - t) * A_G + t * B_G
 Blue Component (B): Intermediate_B = (1 - t) * A_B + t * B_B
-Here, t represents the position along the gradient, and it ranges from 0 to 1. When t is 0, the intermediate color is equal to Color A, and when t is 1, the intermediate color is equal to Color B.
+Here, t represents the position along the gradient, and it ranges from 0 to 1. When t is 0, the intermediate colour is equal to Colour A, and when t is 1, the intermediate colour is equal to Colour B.
 
-By varying the value of t between 0 and 1, you can calculate a range of intermediate colors that smoothly transition from Color A to Color B.
+By varying the value of t between 0 and 1, you can calculate a range of intermediate colours that smoothly transition from Colour A to Colour B.
 
-The result is a series of colors that blend or transition from one to the other. When displayed in succession, it creates a visually appealing gradient or blending effect, which can be used for various purposes, such as shading, coloring, and creating smooth color transitions in graphics and visual applications.
+The result is a series of colours that blend or transition from one to the other. When displayed in succession, it creates a visually appealing gradient or blending effect, which can be used for various purposes, such as shading, colouring, and creating smooth colour transitions in graphics and visual applications.
 
 Example:
 
-Imagine you have two colors, Red and Blue, and you want to create a smooth color transition between them. Red is represented as (255, 0, 0) in RGB (where 255 is the maximum intensity for the red component), and Blue is (0, 0, 255). You want to create a gradient that goes from Red to Blue.
+Imagine you have two colours, Red and Blue, and you want to create a smooth colour transition between them. Red is represented as (255, 0, 0) in RGB (where 255 is the maximum intensity for the red component), and Blue is (0, 0, 255). You want to create a gradient that goes from Red to Blue.
 
-Choose a specific point along the gradient. Let's say you want to find the color at the halfway point, t = 0.5.
+Choose a specific point along the gradient. Let's say you want to find the colour at the halfway point, t = 0.5.
 
 For the Red component (R), you calculate it as follows:
 
@@ -190,11 +220,16 @@ Intermediate_R = 127.5
 
 For the Green and Blue components (G and B), you do the same calculation. In this case, since we're at the halfway point, the Green and Blue components will also be 127.5.
 
-So, at t = 0.5, you get the color (127.5, 127.5, 127.5), which is a shade of gray. It's the halfway point between Red and Blue.
+So, at t = 0.5, you get the colour (127.5, 127.5, 127.5), which is a shade of gray. It's the halfway point between Red and Blue.
 
-By changing t from 0 to 1, you can find the colors at various points along the gradient. At t = 0, you get Red, and at t = 1, you get Blue. At all the points in between, you get different shades that smoothly transition from Red to Blue.
+By changing t from 0 to 1, you can find the colours at various points along the gradient. At t = 0, you get Red, and at t = 1, you get Blue. At all the points in between, you get different shades that smoothly transition from Red to Blue.
 
 Analogy:
 
-Think of this process as mixing two paint colors, Red and Blue, on a canvas. At t = 0, you have a canvas filled with pure Red. At t = 1, the canvas is covered with pure Blue. As you increase t from 0 to 1, you start adding Blue to the canvas while gradually reducing the amount of Red. This creates a smooth transition from Red to Blue. At t = 0.5, you've mixed an equal amount of Red and Blue, resulting in a shade of purple (in this case, gray in the RGB color model).
+Think of this process as mixing two paint colours, Red and Blue, on a canvas. At t = 0, you have a canvas filled with pure Red. At t = 1, the canvas is covered with pure Blue. As you increase t from 0 to 1, you start adding Blue to the canvas while gradually reducing the amount of Red. This creates a smooth transition from Red to Blue. At t = 0.5, you've mixed an equal amount of Red and Blue, resulting in a shade of purple (in this case, gray in the RGB colour model).
 
+# References:
+- Getting started with MiniLibX: https://harm-smits.github.io/42docs/libs/minilibx 
+- MiniLibX Tutorial: https://www.youtube.com/watch?v=bYS93r6U0zg&t=0s 
+- Fractal Tutorial, great explanation of the complex notion: https://youtu.be/ANLW1zYbLcs?si=y3CA7zvfdCfzZNr3 
+- Julia set values: https://en.wikipedia.org/wiki/Julia_set 

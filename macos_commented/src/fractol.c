@@ -35,7 +35,7 @@ int	main(int argc, char **argv) //Define a program that launches and renders a f
 	}
 	//Else if the argument inputs are incorrect
 	ft_printf("Invalid input\nTry:\n");
-	ft_printf("<./fractol mandelbrot> or\n<./fractal julia -0.4 +0.6>");
+	ft_printf("<./fractol mandelbrot> or\n<./fractol julia -0.4 +0.6>");
 	ft_printf(" or\n<./fractol julia -0.835 -0.2321>\n");
 	exit(EXIT_FAILURE); //Terminate the program, EXIT_FAILURE is a predefined constant with a value of 1, signalling an error has occured
 }

@@ -11,6 +11,7 @@
 # define HEIGHT	1000
 
 //Colours
+//See /minilibx-macos/mlx_rgb.c for more colours defined
 # define BLACK			0x000000
 # define WHITE			0xFFFFFF
 # define GREEN			0x00FF00 

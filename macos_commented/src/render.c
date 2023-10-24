@@ -49,29 +49,29 @@ static void	get_complex_map(int x, int y, t_fractol *fract) //Define a function 
 	fractol_set(&z, &c, fract); //Sets the complex number c based on the fractal type. If it's a Julia set, it uses the Julia constant; otherwise, it uses the original complex number z
 	while (i < fract->iterations) //Iterate until the number of iterations reaches the specified limit in fract->iterations, which we have set initially to be 100 iterations (arbitrary value)
 	{
-		z = sum_complex(square_complex(z), c); //For each iteration, it calculate a new value for z by taking the square of the complex number (z = z^2) and adding the constant c
+		z = sum_complex(square_complex(z), c); //For each iteration, calculate a new value for z by taking the square of the complex number (z = z^2) and adding the constant c
 		if ((z.cmplx_r * z.cmplx_r) + (z.cmplx_i * z.cmplx_i) > fract->hypotenuse) //Check if the value escaped using the Pythagorean theorem. If hypotenuse > 2 the point has escaped
 		{
-			rgb = blend_colours(PINK, fract->current_colour, (double)i / fract->iterations); //If so, put a pixel of a colour. BLACK implies the absense of colour and will be what you see in the "background" of the window 
-			ft_pixel_put(x, y, fract, rgb);
+			rgb = blend_colours(BLACK, fract->current_colour, (double)i / fract->iterations); //If the point has escaped, it calculates a colour value based on the number of iterations. BLACK implies the absense of colour and will be what you see in the "background" of the window 
+			ft_pixel_put(x, y, fract, rgb); //It puts a pixel of a colour in the window at x and y coordinates
 			return ;
 		}
-		++i;
+		++i; //Move to the next iteration
 	}
-	ft_pixel_put(x, y, fract, BLACK);
+	ft_pixel_put(x, y, fract, BLACK); //If the point has not escaped after the specified number of iterations, it sets the pixel to black (the fractal shape)
 }
 
-void	fractol_render(t_fractol *fract)
+void	fractol_render(t_fractol *fract) //Define a function that iterates through all the pixels in the image, row by row, and displays it on the window
 {
-	int	x;
-	int	y;
+	int	x; //Used to iterate through the columns of the image
+	int	y; //Used to iterate through the rows of the image
 
-	y = -1;
-	while (++y < HEIGHT)
+	y = -1; //Starts at -1 so that it covers from 0 to (HEIGHT - 1)
+	while (++y < HEIGHT) //Loop through each row
 	{
-		x = -1;
-		while (++x < WIDTH)
-			get_complex_map(x, y, fract);
+		x = -1; //Cover from 0 to (WIDTH - 1)
+		while (++x < WIDTH) 
+			get_complex_map(x, y, fract); //Calculate the colour for the pixel coordinates, and update the image
 	}
-	mlx_put_image_to_window(fract->mlx_connect, fract->window, fract->img, 0, 0);  //cmplx_r, cmplx_i
+	mlx_put_image_to_window(fract->mlx_connect, fract->window, fract->img, 0, 0); //After all pixels have been set, display the rendered image (0, 0: cmplx_r, cmplx_i)
 }
