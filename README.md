@@ -9,18 +9,18 @@ A fractal has self-similarity:
 
 ## 🔷 Preface:
 - This project was challenging, though enjoyable to complete, and the end result is so worth it!
-- I completed the [mandatory](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#-the-mandatory-including-most-of-the-bonus-part) and 4/5 of the bonus (everything except the third fractal).
+- I completed the [mandatory](https://github.com/Thuggonaut/42IC_Ring02_Fractol/tree/main#-the-mandatory-including-most-of-the-bonus-part) and 4/5 of the bonus (everything except the third fractal).
 - The versions included are /linux /macos_commented and /norminette 
 - Here is the outline of how I tackled fract-ol:
-	- [Step 1: Learn the MiniLibX graphical library](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#-step-1-learn-the-minilibx-graphical-library)
-	- [Step 2: Learn the Complex numbers notion](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#-step-2-learn-the-complex-numbers-notion)
-	- [Step 3: Learn how Fractals work](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#-step-3-learn-how-fractals-work)
-	- [Step 4: Learn about Event handling in the context of the project](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#-step-4-learn-about-event-handling-in-the-context-of-the-project)
-	- [Step 5: Plan the structure of directories and files](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#-step-5-plan-the-structure-of-directories-and-files)
-	- [Step 6: Implement fract-ol](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#-step-6-implement-fract-ol)
+	- [Step 1: Learn the MiniLibX graphical library](https://github.com/Thuggonaut/42IC_Ring02_Fractol/tree/main#-step-1-learn-the-minilibx-graphical-library)
+	- [Step 2: Learn the Complex numbers notion](https://github.com/Thuggonaut/42IC_Ring02_Fractol/tree/main#-step-2-learn-the-complex-numbers-notion)
+	- [Step 3: Learn how Fractals work](https://github.com/Thuggonaut/42IC_Ring02_Fractol/tree/main#-step-3-learn-how-fractals-work)
+	- [Step 4: Learn about Event handling in the context of the project](https://github.com/Thuggonaut/42IC_Ring02_Fractol/tree/main#-step-4-learn-about-event-handling-in-the-context-of-the-project)
+	- [Step 5: Plan the structure of directories and files](https://github.com/Thuggonaut/42IC_Ring02_Fractol/tree/main#-step-5-plan-the-structure-of-directories-and-files)
+	- [Step 6: Implement fract-ol](https://github.com/Thuggonaut/42IC_Ring02_Fractol/tree/main#-step-6-implement-fract-ol)
 	- Step 7: Test fract-ol against the [evaluation checklist](https://rphlr.github.io/42-Evals/Rank02/fract-ol/)
-- I worked with Linux, and once the program functioned, I translated the code to work on MacOS. See notes here: [Differences between Linux and MacOS](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#-differences-between-linux-and-macos) (though it might not make sense before delving in to the project's implementation).
-- See [references](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#-references) for resources used
+- I worked with Linux, and once the program functioned, I translated the code to work on MacOS. See notes here: [Differences between Linux and MacOS](https://github.com/Thuggonaut/42IC_Ring02_Fractol/tree/main#-differences-between-linux-and-macos) (though it might not make sense before delving in to the project's implementation).
+- See [references](https://github.com/Thuggonaut/42IC_Ring02_Fractol/tree/main#-references) for resources used
 
 
 ## 🔷 The Mandatory (including most of the Bonus) part:
