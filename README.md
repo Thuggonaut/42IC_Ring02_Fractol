@@ -310,4 +310,4 @@ Pseudocode:
 	- https://rphlr.github.io/42-Evals/
 
 
-# Have fun friends! 
+# Have fun friends! ✨
