@@ -42,7 +42,7 @@ Graphic management:
 
 ## 🔷 Step 1: Learn the MiniLibX graphical library
 
-Getting to know the basics of this graphical library with no prior knowledge can be overwhelming (atleast for me). It made more sense the more I wrote and tested your code for fractol, and in the end, it wasn't so intimidating. My big take is, it's a basic graphics library, with basic functions, and it's got nothing on you! Below is the sequence of the functions I learned: 
+Getting to know the basics of this graphical library with no prior knowledge can be overwhelming (atleast for me). It made more sense the more I wrote and tested our code for fractol, and in the end, it wasn't so intimidating. My big take is, it's a basic graphics library, with basic functions, and it's got nothing on you! Below is the sequence of the functions I learned: 
 
 - mlx_init()
 - mlx_new_window()
