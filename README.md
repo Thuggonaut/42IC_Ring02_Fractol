@@ -198,8 +198,8 @@ Getting to know the basics of this graphical library with no prior knowledge can
 
 - PYTHAGOREAN THEOREM:
 	- In a right triangle (a triangle with one angle of 90 degrees), the square of the length of the hypotenuse (the side opposite the right angle) is equal to the sum of the squares of the lengths of the other two sides. E.g.:
-		- Let "a" and "b" be the lengths of the two shorter sides (the legs)
-		- Let "c" be the length of the hypotenuse
+		- Where "a" and "b" be the lengths of the two shorter sides (the legs)
+		- Where "c" be the length of the hypotenuse
 		- The theorem states that:
 			`a^2 + b^2 = c^2`
 
