@@ -7,6 +7,9 @@ A fractal has self-similarity:
 - E.g. the snowflake, Romanesco Broccoli, pine cones, succulents, tree branches, foam.
 
 
+![Alt text](image.png)
+
+
 ## 🔷 Preface:
 - This project was challenging, though enjoyable to complete, and the end result is so worth it!
 - I completed the [mandatory](https://github.com/Thuggonaut/42IC_Ring02_Fractol/tree/main#-the-mandatory-including-most-of-the-bonus-part) and 4/5 of the bonus (everything except the third fractal).
@@ -305,3 +308,6 @@ Pseudocode:
 	- https://facelessuser.github.io/coloraide/interpolation/
 - Evaluation guides:
 	- https://rphlr.github.io/42-Evals/
+
+
+# Have fun friends! 
