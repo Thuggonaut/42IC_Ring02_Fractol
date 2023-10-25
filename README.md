@@ -292,9 +292,16 @@ Pseudocode:
 
 
 ## 🔷 References:
-- Getting started with MiniLibX: https://harm-smits.github.io/42docs/libs/minilibx 
-- MiniLibX Tutorial: https://www.youtube.com/watch?v=bYS93r6U0zg&t=0s 
-- Fractal Tutorial, great explanation of the complex notion: https://youtu.be/ANLW1zYbLcs?si=y3CA7zvfdCfzZNr3 
-- Julia set values: https://en.wikipedia.org/wiki/Julia_set 
-- Colour interpolation: https://www.alanzucconi.com/2016/01/06/colour-interpolation/ and https://facelessuser.github.io/coloraide/interpolation/
-- Evaluation guides: https://rphlr.github.io/42-Evals/
+- Getting started with MiniLibX:
+  https://harm-smits.github.io/42docs/libs/minilibx 
+- MiniLibX Tutorial:
+  https://www.youtube.com/watch?v=bYS93r6U0zg&t=0s 
+- Fractal Tutorial, great explanation of the complex notion:
+  https://youtu.be/ANLW1zYbLcs?si=y3CA7zvfdCfzZNr3 
+- Julia set values:
+  https://en.wikipedia.org/wiki/Julia_set 
+- Colour interpolation:
+  https://www.alanzucconi.com/2016/01/06/colour-interpolation/ and
+  https://facelessuser.github.io/coloraide/interpolation/
+- Evaluation guides:
+  https://rphlr.github.io/42-Evals/
