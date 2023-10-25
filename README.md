@@ -9,18 +9,18 @@ A fractal has self-similarity:
 
 ## 🔷 Preface:
 - This project was challenging, though enjoyable to complete, and the end result is so worth it!
-- I completed the mandatory and 4/5 of the project (everything except the third fractal).
+- I completed the [mandatory](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#-the-mandatory-including-most-of-the-bonus-part) and 4/5 of the project (everything except the third fractal).
 - The versions included are /linux /macos_commented and /norminette 
-- Here is the outline of how I tackeled fract-ol:
-	- Step 1: Learn the MiniLibX graphical library
-	- Step 2: Learn the Complex numbers notion
-	- Step 3: Learn how Fractals work
-	- Step 4: Learn about Event handling in the context of the project
-	- Step 5: Plan the structure of directories and files
-	- Step 6: Implement fract-ol
-	- Step 7: Test fract-ol against the evaluation checklist: https://rphlr.github.io/42-Evals/Rank02/fract-ol/
-- I worked with Linux, and once the program functioned, I translated the code to work on MacOS. See notes here: Differences between Linux and MacOS (though it might not make sense before delving in to the project's implementation).
-- See references for resources used
+- Here is the outline of how I tackled fract-ol:
+	- [Step 1: Learn the MiniLibX graphical library](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#-step-1-learn-the-minilibx-graphical-library)
+	- [Step 2: Learn the Complex numbers notion](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#step-2-learn-the-complex-numbers-notion)
+	- [Step 3: Learn how Fractals work](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#step-3-learn-how-fractals-work)
+	- [Step 4: Learn about Event handling in the context of the project](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#step-4-learn-about-event-handling-in-the-context-of-the-project)
+	- [Step 5: Plan the structure of directories and files](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#step-5-plan-the-structure-of-directories-and-files)
+	- [Step 6: Implement fract-ol](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#step-6-implement-fract-ol)
+	- Step 7: Test fract-ol against the [evaluation checklist](https://rphlr.github.io/42-Evals/Rank02/fract-ol/)
+- I worked with Linux, and once the program functioned, I translated the code to work on MacOS. See notes here: [Differences between Linux and MacOS](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#differences-between-linux-and-macos) (though it might not make sense before delving in to the project's implementation).
+- See [references](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#references) for resources used
 
 
 ## 🔷 The Mandatory (including most of the Bonus) part:
@@ -138,7 +138,7 @@ Getting to know the basics of this graphical library with no prior knowledge can
 -  keeps the application running and responsive, as without it, our program would finish executing without capturing user input events like keyboard presses, or mouse movements. It would simply execute the code that sets up the window and be non-interactive.
 
 
-## Step 2: Learn the Complex numbers notion
+## 🔷 Step 2: Learn the Complex numbers notion
 
 - The "complex plane" is a mathematical concept used in complex number theory and fractal geometry.
 - It's a two-dimensional plane where each point represents a complex number.
@@ -158,7 +158,7 @@ Getting to know the basics of this graphical library with no prior knowledge can
 	- By "iteration", we mean repeated application of a mathematical formula, which differs between diferent fractal sets.
 
 
-## Step 3: Learn how Fractals work
+## 🔷 Step 3: Learn how Fractals work
 
 🔹 **Fractal set formulas**
 - Both the mandelbrot and julia fractals share the same mathematical formula:
@@ -204,7 +204,7 @@ Getting to know the basics of this graphical library with no prior knowledge can
 			`a^2 + b^2 = c^2`
 
 
-## Step 4: Learn about Event handling in the context of the project
+## 🔷 Step 4: Learn about Event handling in the context of the project
 
 - Recall earlier, we talked about event handling, and creating user-defined functions that handle specific key, mouse, or close events. 
 - In our handler functions is where we can assign or "hook" a specific key, to an action or how we want the window/image to interact. For example, we say:
@@ -218,7 +218,7 @@ Getting to know the basics of this graphical library with no prior knowledge can
 	- `double	zoom;` which stores the zoom ratio of the fractal image, determining how much the fractal is magnified or reduced in size. 
 
 
-## Step 5: Plan the structure of directories and files
+## 🔷 Step 5: Plan the structure of directories and files
 
 ```
 fractol/
@@ -242,7 +242,7 @@ fractol/
 ```
 
 
-## Step 6: Implement fract-ol
+## 🔷 Step 6: Implement fract-ol
 
 - Now that we have a rough idea of the functions we need to render an image, let's write some pseudocode to help us start implementing our code.
 
@@ -272,7 +272,7 @@ Pseudocode:
 			//Until the program is closed, make sure it's in a state of continous waiting for the user's interactions, e.g. key press or mouse clicks
 ```
 
-# Differences between Linux and MacOS:
+## 🔷 Differences between Linux and MacOS:
 - MiniLibx libraries:
 	- For M, I went with OpenGL version
 	- Download it from the project page on your intra, unzip the file then place the directory at the root of your repository.
@@ -291,9 +291,10 @@ Pseudocode:
 	- In my Makefile, I wrote it in a way that it could detect between Linux and MacOS, and compile accordingly. This seemed a great idea at first (and now I've learned something new), it was redundant because, of the differences in codes and functions mentioned above. There would surely be a way to remedy this, to write code that works universally. 
 
 
-# References:
+## 🔷 References:
 - Getting started with MiniLibX: https://harm-smits.github.io/42docs/libs/minilibx 
 - MiniLibX Tutorial: https://www.youtube.com/watch?v=bYS93r6U0zg&t=0s 
 - Fractal Tutorial, great explanation of the complex notion: https://youtu.be/ANLW1zYbLcs?si=y3CA7zvfdCfzZNr3 
 - Julia set values: https://en.wikipedia.org/wiki/Julia_set 
 - Colour interpolation: https://www.alanzucconi.com/2016/01/06/colour-interpolation/ and https://facelessuser.github.io/coloraide/interpolation/
+- Evaluation guides: https://rphlr.github.io/42-Evals/
