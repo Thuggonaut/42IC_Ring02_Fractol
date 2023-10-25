@@ -35,15 +35,15 @@ typedef struct s_fractol
 	char		*title; //The title that will appear on the window
 	void		*mlx_connect; //Store a pointer from the mlx_init() function that establishes a connection to the mlx
 	void		*window; //Store a pointer from the mlx_new_window() function
-	void		*img; //Store a pointer to an image
-	char		*img_buffer; //Store the address of the image data as an array of bytes, where each byte represents a pixel
+	void		*img; //Store a pointer to an image, used as a buffer
+	char		*img_addr; //Store the address of the image data as an array of bytes, where each byte represents a pixel. Colour data is also stored here
 	int			img_bpp; //Represents the number of bits used to for a single pixel in the image
 	int			img_line; //Represents the number of bytes in a single row or line of pixel data in the image
 	int			img_endian; //Refers to the byte order in which multi-byte data types (like integers) are stored in memory. Common values are 0 or 1 to indicate little-endian or big-endian
 	double		cmplx_r; //Refers to the real component of the complex value
 	double		cmplx_i; //Refers to the imaginary component of the complex value
 	double		hypotenuse; //A reference to check whether the points of the mandelbrot/julia has escaped
-	int			iterations; //Refers to the image quality and rendering speed
+	int			iterations; //Store the number of iterations, which changes the image quality and rendering speed
 	double		shift_r; //Store the horizontal translation in the complex plane, to control the movement of the fractal image left or right
 	double		shift_i; //Store the vertical translation in the complex plane, to control the movement of the fractal image up or down
 	double		zoom; //Store the zoom level of the fractal image. It determines how much the fractal is magnified or reduced in size

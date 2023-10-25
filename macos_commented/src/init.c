@@ -55,11 +55,11 @@ static void	create_image(t_fractol *fract) //Define a function that creates a im
 	}
 	//If new image creation is successful
 	//Call the MiniLibX function to retrieve information about the new image and updates the relevant data fields of the fractal struct, storing pointers to
-	//img_buffer: the address of the image data. It points to the location in memory where the pixel data of the image is stored
+	//img_addr: the address of the image data. It points to the location in memory where the pixel data of the image is stored
 	//img_bpp: the number of bits used for a single pixel in the image. The & in front of it is used to get a reference to the variable so that the mlx_get_data_addr function can modify its value
 	//img_line: the number of bytes in a single row or line of pixel data in the image
 	//img_endian: the byte order in which multi-byte data types (like integers) are stored in memory. Common values are 0 or 1, indicating little-endian or big-endian
-	fract->img_buffer = mlx_get_data_addr(fract->img,
+	fract->img_addr = mlx_get_data_addr(fract->img,
 			&fract->img_bpp,
 			&fract->img_line,
 			&fract->img_endian);

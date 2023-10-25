@@ -30,7 +30,7 @@ int	main(int argc, char **argv) //Define a program that launches and renders a f
 		}
 		fractol_init(&fract); //Initiate the fractal program and the fractal data
 		fractol_render(&fract); //Render the image
-		mlx_loop(fract.mlx_connect); //Put the program in a state of looping or it'll "finish" executing and be incomplete
+		mlx_loop(fract.mlx_connect); //Put the program in a state of looping or it'll "finish" executing and be non-interactive
 		return (0);
 	}
 	//Else if the argument inputs are incorrect

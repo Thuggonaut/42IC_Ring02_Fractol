@@ -37,7 +37,7 @@ typedef struct s_fractol
 	void		*mlx_connect; 
 	void		*window;
 	void		*img;
-	char		*img_buffer;
+	char		*img_addr;
 	int			img_bpp;
 	int			img_line;
 	int			img_endian;

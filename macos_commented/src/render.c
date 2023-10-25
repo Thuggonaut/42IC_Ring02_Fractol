@@ -31,7 +31,7 @@ static void	ft_pixel_put(int x, int y, t_fractol *fract, int rgb) //Define a fun
 	int		offset; //To be used as a buffer
 
 	offset = (y * fract->img_line + x * (fract->img_bpp / 8)); //Calculate where we want to put our pixel on the plane
-	*(unsigned int *)(fract->img_buffer + offset) = rgb; //Then colour the pixel
+	rgb = *(unsigned int *)(fract->img_addr + offset); //Then retrieve the colour data of the pixel at x and y and colour the pixel
 }
 
 static void	get_complex_map(int x, int y, t_fractol *fract) //Define a function that retrieves the relevant data from the fractal struct and performs the iterations and colour calculation for rendering fractals
@@ -50,10 +50,10 @@ static void	get_complex_map(int x, int y, t_fractol *fract) //Define a function 
 	while (i < fract->iterations) //Iterate until the number of iterations reaches the specified limit in fract->iterations, which we have set initially to be 100 iterations (arbitrary value)
 	{
 		z = sum_complex(square_complex(z), c); //For each iteration, calculate a new value for z by taking the square of the complex number (z = z^2) and adding the constant c
-		if ((z.cmplx_r * z.cmplx_r) + (z.cmplx_i * z.cmplx_i) > fract->hypotenuse) //Check if the value escaped using the Pythagorean theorem. If hypotenuse > 2 the point has escaped
+		if ((z.cmplx_r * z.cmplx_r) + (z.cmplx_i * z.cmplx_i) > fract->hypotenuse) //Check if the value escaped using the Pythagorean theorem. If hypotenuse > 2, the point has escaped
 		{
 			rgb = blend_colours(BLACK, fract->current_colour, (double)i / fract->iterations); //If the point has escaped, it calculates a colour value based on the number of iterations. BLACK implies the absense of colour and will be what you see in the "background" of the window 
-			ft_pixel_put(x, y, fract, rgb); //It puts a pixel of a colour in the window at x and y coordinates
+			ft_pixel_put(x, y, fract, rgb); //It puts a pixel of a colour in the window at x and y coordinates. This is the colour seen surrounding the fractal image, where the points have escaped the fractal set
 			return ;
 		}
 		++i; //Move to the next iteration

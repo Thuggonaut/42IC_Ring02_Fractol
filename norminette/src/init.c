@@ -63,7 +63,7 @@ static void	create_image(t_fractol *fract)
 		free(fract->mlx_connect);
 		malloc_error();
 	}
-	fract->img_buffer = mlx_get_data_addr(fract->img,
+	fract->img_addr = mlx_get_data_addr(fract->img,
 			&fract->img_bpp,
 			&fract->img_line,
 			&fract->img_endian);

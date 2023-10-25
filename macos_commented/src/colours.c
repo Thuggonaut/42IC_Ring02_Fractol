@@ -42,10 +42,50 @@ void	colour_shift(t_fractol *fract) //Define a function that cycles through the 
 }
 
 /*
+# LINER INTERPOLATION AND COLOUR BLENDING:
+
+- Linear interpolation between two colours results in a blending of colours because it calculates intermediate colours by smoothly transitioning 
+  from one colour to another. 
+- This process creates a gradient or transition effect, which visually appears as a blend of the two original colours.
+
+- Suppose we have two colours, Colour A and Colour B, and we want to blend them together. 
+- Each colour can be represented as a combination of its red (R), green (G), and blue (B) components, each ranging from 0 to 255 (or 0 to 1 in 
+  normalized form). 
+	- Red is represented as (255, 0, 0) in RGB (where 255 is the maximum intensity for the red component), and Blue is (0, 0, 255).
+- Linear interpolation is performed independently for each of these colour components (R, G, and B).
+
+- We choose a specific point along the gradient. 
+	- Let's say we want to find the colour at the halfway point, t = 0.5.
+
+- For the Red component (R), we calculate it as follows:
+
+	- Intermediate_R = (1 - t) * Red_R + t * Blue_R
+	- Intermediate_R = (1 - 0.5) * 255 + 0.5 * 0
+	- Intermediate_R = 0.5 * 255
+	- Intermediate_R = 127.5
+
+- For the Green and Blue components (G and B), we do the same calculation. 
+	- In this case, since we're at the halfway point, the Green and Blue components will also be 127.5.
+
+- So, at t = 0.5, we get the colour (127.5, 127.5, 127.5)
+	- which is a shade of gray. It's the halfway point between Red and Blue.
+
+- By changing t from 0 to 1, we can find the colours at various points along the gradient. At t = 0, we get Red, and at t = 1, we get Blue. At all 
+  the points in between, we get different shades that smoothly transition from Red to Blue.
+
+- Analogy:
+  Think of this process as mixing two paint colours, Red and Blue, on a canvas. 
+	- At t = 0, we have a canvas filled with pure Red. 
+	- At t = 1, the canvas is covered with pure Blue. 
+		- As we increase t from 0 to 1, we start adding Blue to the canvas while gradually reducing the amount of Red. 
+		- This creates a smooth transition from Red to Blue. 
+	- At t = 0.5, we've mixed an equal amount of Red and Blue, resulting in a shade of purple.
+
+
 BLENDING CALCULATIONS:
 
 The red and green colour components are typically stored in the most significant bits of the colour values. 
-That's why you see bit-shifting operations (>>) to extract these components. In most colour representations, red is in the bits 16-23, and green is in bits 8-15. 
+That's why we see bit-shifting operations (>>) to extract these components. In most colour representations, red is in the bits 16-23, and green is in bits 8-15. 
 The & 0xFF operation is used to mask out any higher-order bits, leaving only the lower 8 bits that represent the colour component.
 
 The blue colour component is usually stored in the least significant bits of the colour values. Unlike red and green, it doesn't need a bit-shifting operation to 
@@ -59,5 +99,5 @@ If colour_index is 13, and there are 14 elements in the colours array (so (sizeo
 	colour_index + 1 is 14.
 	14 % 14 is 0.
 So, after this operation, colour_index will be set to 0, effectively "wrapping around" to the beginning of the colours array. 
-This ensures that you cycle through the array of colors, and when you reach the end, you start again from the beginning.
+This ensures that we cycle through the array of colors, and when we reach the end, we start again from the beginning.
 */

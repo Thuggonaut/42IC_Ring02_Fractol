@@ -43,7 +43,7 @@ int	handle_key(int key, t_fractol *fract) //Define a function that handles key p
 	return (0);
 }
 
-static int	julia_track(int button, int x, int y, t_fractol *fract)
+static int	julia_track(int button, int x, int y, t_fractol *fract) //Define a function that changes the z complex values, exploring varying patterns of the fractal set. See #1
 {
 	if (button == 1 || button == 2) //If left or right mouse click
 	{

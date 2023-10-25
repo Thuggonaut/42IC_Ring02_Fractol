@@ -19,7 +19,7 @@ static void	ft_pixel_put(int x, int y, t_fractol *fract, int rgb)
 	int		offset;
 
 	offset = (y * fract->img_line + x * (fract->img_bpp / 8));
-	*(unsigned int *)(fract->img_buffer + offset) = rgb; 
+	rgb = *(unsigned int *)(fract->img_addr + offset); 
 }
 	
 static void get_complex_map(int x, int y, t_fractol *fract)
