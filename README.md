@@ -9,7 +9,7 @@ A fractal has self-similarity:
 
 ## 🔷 Preface:
 - This project was challenging, though enjoyable to complete, and the end result is so worth it!
-- I completed the [mandatory](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#-the-mandatory-including-most-of-the-bonus-part) and 4/5 of the project (everything except the third fractal).
+- I completed the [mandatory](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#-the-mandatory-including-most-of-the-bonus-part) and 4/5 of the bonus (everything except the third fractal).
 - The versions included are /linux /macos_commented and /norminette 
 - Here is the outline of how I tackled fract-ol:
 	- [Step 1: Learn the MiniLibX graphical library](https://github.com/Thuggonaut/42IC_Ring02_Fractol/blob/main/README.md#-step-1-learn-the-minilibx-graphical-library)
