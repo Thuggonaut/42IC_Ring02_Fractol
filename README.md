@@ -12,8 +12,8 @@ A fractal has self-similarity:
 
 ## 🔷 Preface:
 - This project was challenging, though enjoyable to complete, and the end result is so worth it!
-- I completed the [mandatory](https://github.com/Thuggonaut/42IC_Ring02_Fractol/tree/main#-the-mandatory-including-most-of-the-bonus-part) and 4/5 of the bonus (everything except the third fractal).
-- The versions included are /linux /macos_commented and /norminette 
+- I completed the [mandatory](https://github.com/Thuggonaut/42IC_Ring02_Fractol/tree/main#-the-mandatory-including-most-of-the-bonus-part) and 4/5 of the bonus (everything except the third fractal). Note: The zoom centering the cursor is not perfect - please share if you figure it out!
+- The versions included are /linux /macos_commented and /norminette
 - Here is the outline of how I tackled fract-ol:
 	- [Step 1: Learn the MiniLibX graphical library](https://github.com/Thuggonaut/42IC_Ring02_Fractol/tree/main#-step-1-learn-the-minilibx-graphical-library)
 	- [Step 2: Learn the Complex numbers notion](https://github.com/Thuggonaut/42IC_Ring02_Fractol/tree/main#-step-2-learn-the-complex-numbers-notion)
