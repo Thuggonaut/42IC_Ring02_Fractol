@@ -1,4 +1,4 @@
-# ✴️ Fract-ol
+# ❄️ Fract-ol
 
 A project creating a Fractal exploration program. 
 
