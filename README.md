@@ -212,8 +212,8 @@ Getting to know the basics of this graphical library with no prior knowledge can
 - Recall earlier, we talked about event handling, and creating user-defined functions that handle specific key, mouse, or close events. 
 - In our handler functions is where we can assign or "hook" a specific key, to an action or how we want the window/image to interact. For example, we say:
 	- If the key `ESC` (or `53` in AppleScript) is pressed, we want the window to exit/close
-	- Or, if the key `Left arrow` (or `123` in AppleScript), we want to fractal image to shift to the left.
-	- Or, if the mouse button is `4` (scrolls up), we want to fractal image to shift to zoom in.
+	- Or, if the key `Left arrow` (or `123` in AppleScript) is pressed, we want to fractal image to shift to the left.
+	- Or, if the mouse button is `4` (scrolls up), we want to fractal image to zoom in.
 	- And so on, so forth. 
 - In our data structure, we will define the elements e.g.
 	- `double	shift_r;` which stores the horizontal translation in the complex plane, used to shift the fractal left or right
