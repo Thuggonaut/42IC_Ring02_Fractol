@@ -283,14 +283,14 @@ Pseudocode:
 	- At the root of your repository, do:
 		<norminette> <project/directories> to only check norm errors in your source files, e.g. `norminette inc/ src/`
 - MiniLibx functions:
-	- L uses mlx_destroy_window() and mlx_destroy_display
-	- M uses the one mlx_destroy_window()
-	- mlx_hook() is handled differently between L and M
+	- L uses `mlx_destroy_window()` and `mlx_destroy_display()`
+	- M uses the one `mlx_destroy_window()`
+	- `mlx_hook()` is handled differently between L and M
 - Keypress codes:
 	- M uses Applescript key codes, different to that of L
 - Makefile linker flags:
-	- L uses -lXext -lX11 
-	- M uses -Lminilibx-macos -lmlx -framework OpenGL -framework AppKit 
+	- L uses `-lXext -lX11` 
+	- M uses `-Lminilibx-macos -lmlx -framework OpenGL -framework AppKit` 
 	- In my Makefile, I wrote it in a way that it could detect between Linux and MacOS, and compile accordingly. This seemed a great idea at first (and now I've learned something new), it was redundant because, of the differences in codes and functions mentioned above. There would surely be a way to remedy this, to write code that works universally. 
 
 
